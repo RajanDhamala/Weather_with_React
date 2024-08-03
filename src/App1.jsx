@@ -28,7 +28,7 @@ function getLocation(e){
 
 async function Weather(){
     try{
-    const data3=await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=8d47a5f1d4b79887afebf652cebff23c`)
+    const data3=await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=8d47a5f1d4b79887afebf652cebff23c`)
     const data=await data3.json()
     Setforecastdata(data.list)
     Setshowcurrent(true)
