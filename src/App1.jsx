@@ -2,7 +2,7 @@ import React,{useState,useEffect} from "react";
 import Forecastcard from "./componnets/ForecastCard";
 import Current from "./componnets/Current";
 
-function App1(){
+function App(){
 const [city,Setcity]=useState('')
 const [location,Setlocation]=useState('')
 const [showcurrent,Setshowcurrent]=useState(false)
@@ -25,10 +25,9 @@ function getLocation(e){
       alert('Geolocation is not supported by this browser.');
     }
 }
-
 async function Weather(){
     try{
-    const data3=await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=8d47a5f1d4b79887afebf652cebff23c`)
+    const data3=await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=8d47a5f1d4b79887afebf652cebff23c`)
     const data=await data3.json()
     Setforecastdata(data.list)
     Setshowcurrent(true)
@@ -66,19 +65,21 @@ function handleclick(e){
         <h1 className="text-white font-bold text-3xl sm:text-4xl ">Weather App</h1>
         </div>
       </div>
-      <div className="md:flex md:justify-center items-center">
-      <div className="mx-4 grid grid-row gap-2 mb-4 md:w-96 p-10 rounded-md md:bg-gray-800/50 md:backdrop-blur-sm">
-      <label className="text-black font-bold text-2xl ">Enter a City Name</label>
-      <input type="text" className="bg-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 rounded-md pl-3 py-2 placeholder:text-black placeholder:font-semibold placeholder:text-opacity-60 delay-200" placeholder="palpa/biratnagar" value={city} onChange={(e)=>Setcity(e.target.value)} />
-    <button className="mt-2 bg-green-500 hover:bg-green-600 text-white py-[4px] rounded-md"
+      <div className="md:grid md:grid-cols-12 md:py-1">
+      <div className="md:col-start-3 md:col-end-11 ">
+      <div className="mx-4 grid grid-row gap-2 mb-4 p-10 rounded-md  md:gap-4 ">
+      <label className="text-black font-bold text-2xl md:text-3xl ">Enter a City Name</label>
+      <input type="text" className="bg-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 rounded-md pl-3 py-2 placeholder:text-black placeholder:font-semibold placeholder:text-opacity-60 delay-200 " placeholder="palpa/biratnagar" value={city} onChange={(e)=>Setcity(e.target.value)} />
+    <button className="mt-2 bg-green-500 hover:bg-green-600 text-white py-[4px] rounded-md md:text-1xl md:py-1"
     onClick={(e)=>{handleclick(e)}}>Search</button>
 
 <div className="flex items-center">
   <div className="flex-grow border-t-2 border-t-gray-500"></div>
-  <span className="mx-4 font-bold">or</span>
+  <span className="mx-4 font-bold md:text-2xl">or</span>
   <div className="flex-grow border-t-2 border-t-gray-500"></div>
 </div>
-        <button className="bg-blue-500 hover:bg-blue-600 text-white py-1 rounded-md" onClick={(e)=>getLocation(e)}>Use Location</button>
+        <button className="bg-blue-500 md:text-1xl m:py-2 hover:bg-blue-600 text-white py-1 rounded-md" onClick={(e)=>getLocation(e)}>Use Location</button>
+    </div>
     </div>
     </div>
     <div className="sm:grid-cols-2 md:w-full mt-5 flex items-center md:col-span-7">
@@ -96,4 +97,4 @@ function handleclick(e){
     </>
     )
 }
-export default App1
+export default App
