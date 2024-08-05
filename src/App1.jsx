@@ -33,6 +33,8 @@ async function Weather(){
     Setshowcurrent(true)
     Setshowdorecastcard(true)
     Setcity('')
+    Setlocation(data.city.name)
+    console.log(location)
 }catch(error){
         console.log("Error",error)
     }
