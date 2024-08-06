@@ -11,7 +11,8 @@ const [lat,Setlat]=useState('')
 const [long,Setlong]=useState('')
 const [forecastdata,Setforecastdata]=useState('')
 
-function getLocation(e){
+// to get coordiantes of user location
+function getLocation(e){   
     e.preventDefault();
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -25,6 +26,8 @@ function getLocation(e){
       alert('Geolocation is not supported by this browser.');
     }
 }
+
+// using coordinates to get 5 day forcast 
 async function Weather(){
     try{
     const data3=await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=8d47a5f1d4b79887afebf652cebff23c`)
@@ -44,6 +47,10 @@ useEffect(()=>{
         Weather()
     }
 },[lat,long])
+
+// api call to get latitude and longitude of city entered 
+// by user calls api and gets lat long as response
+
 function handleclick(e){
     e.preventDefault();
     async function latlong(){
