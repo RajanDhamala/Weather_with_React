@@ -43,7 +43,7 @@ async function Weather(){
     }
 }
 useEffect(()=>{
-    if(lat && long !==''){
+    if(lat !=='' && long !==''){
         Weather()
     }
 },[lat,long])
