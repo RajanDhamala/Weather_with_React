@@ -19,7 +19,7 @@ function Weathercard({location,time,message,temp,icon,humidity,wind}){
                 </div>
             <div className="grid grid-rows-2 place-content-center">
                 <img src={'https://previews.123rf.com/images/vectorstockcompany/vectorstockcompany1809/vectorstockcompany180901328/108988611-humidity-icon-water-level-down-concept-symbol-design-with-gradient-on-white-vector-illustration.jpg'} alt="" className="h-16" />
-                <h1 className="text-center mt-2">{humidity}</h1>
+                <h1 className="text-center mt-2">{humidity}%</h1>
             </div>
             <div className="grid grid-rows-2 place-content-center">
                 <img src={"https://cdn-icons-png.flaticon.com/512/1247/1247767.png"} alt="" className="h-16" />
